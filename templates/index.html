@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attacker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+
+    <div id="index-container">
+        <div id="index-buttons">
+            <button type="submit" onclick="(function(){window.location.href='dictionary'})();">Dictionary Attack</button>
+            <button type="submit" onclick="(function(){window.location.href='bruteforce'})();">Bruteforce Attack</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Attcker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h2>Dictionary Attack</h2>
+    <form action="{{url_for('dictionary') }}" method="POST" enctype="multipart/form-data">
+
+      <!-- Dòng 1: Địa chỉ IP -->
+        <div class="form-group">
+            <label for="ip_address">URL:</label>
+            <input type="text" name="ip_address" id="ip_address" required>
+        </div>
+
+      <!-- Dòng 2: Header -->
+        <div class="form-group">
+            <label for="headers">Headers:</label>
+            <textarea name="headers" id="headers" rows="4" placeholder="Key: Value\nKey2: Value2"></textarea>
+        </div>
+
+      <!-- Dòng 3: Checkbox + input tài khoản / mật khẩu -->
+      <div class="form-group">
+          <div class="checkbox-group">
+            <label><input type="checkbox" id="has_account" name="has_account"> Đã có tài khoản</label>
+            <label><input type="checkbox" id="has_password" name="has_password"> Đã có mật khẩu</label>
+          </div>
+          <div id="account_field" class="hidden">
+              <label for="account">Tài khoản:</label>
+              <input type="text" name="account" id="account">
+          </div>
+          <div id="password_field" class="hidden">
+              <label for="password">Mật khẩu:</label>
+              <input type="text" name="password" id="password">
+          </div>
+      </div>
+
+      <!-- Dòng 4: Upload file -->
+      <div class="form-group">
+          <label for="account_file">Upload file tài khoản:</label>
+          <input type="file" name="account_file" id="account_file">
+      </div>
+      <div class="form-group">
+          <label for="password_file">Upload file mật khẩu:</label>
+          <input type="file" name="password_file" id="password_file">
+      </div>
+
+      <!-- Dòng 5: Captcha -->
+      <div class="form-group">
+          <label><input type="checkbox" id="has_captcha" name="has_captcha"> Có captcha</label>
+          <div id="captcha_field" class="hidden">
+              <label for="captcha_path">Đường dẫn captcha:</label>
+              <input type="text" name="captcha_path" id="captcha_path">
+          </div>
+      </div>
+
+      <!-- Dòng 6: Filters -->
+        <div class="form-group">
+            <label for="ip_address">Filter:</label>
+            <input type="text" name="filter" id="filter" required>
+        </div>
+
+      <button type="submit">Gửi</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+</html>
+
+
